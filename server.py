@@ -13,6 +13,7 @@ def main():
 
     try:
         server.bind((HOST, PORT))
+        print(f"Running the server at {HOST} on port {PORT}")
     except:
         print(f'Unable to bind to host {HOST} on port {PORT}')
 
@@ -22,7 +23,7 @@ def main():
     # Listen to client connections
     while True:
         client, address = server.accept()
-        print(f"Successfully connect to client {address[0]} {address[1]}")
+        print(f"Successfully connected to client {address[0]} {address[1]}")
 
 
 if __name__ == "__main__":
