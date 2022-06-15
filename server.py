@@ -33,11 +33,14 @@ def client_handler(client):
         username = client.recv(2048).decode('utf-8')
         if username != '':
             active_clients.append((username, client))
+            message = "SERVER-> " + f"{username} added to the chat."
+            send_message_to_all(message)
             break
         else:
             print('Client username is empty')
+
     threading.Thread(target=listen_for_messages, args=(client, username, )).start()
-    
+
 # Main function
 def main():
     # Create socket class instance
